@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>&lt;hii suriya&gt;</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #ffe5ef, #fff6fa, #ffd6e7);
+    color: #783d55;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.float-heart {
+    position: absolute;
+    bottom: -40px;
+    animation: floatUp linear forwards;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    width: min(92%, 620px);
+    margin: 35px auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.91);
+    padding: 30px 23px;
+    border-radius: 26px;
+    text-align: center;
+    box-shadow: 0 12px 35px #e98cad35;
+    border: 1px solid white;
+    margin-bottom: 22px;
+    animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: clamp(2rem, 8vw, 3.1rem);
+    color: #e65387;
+    margin: 16px 0;
+}
+
+h2 {
+    color: #db4b7d;
+    margin-bottom: 16px;
+    font-size: 1.65rem;
+}
+
+h3 {
+    color: #d94f81;
+    margin: 15px 0;
+}
+
+p {
+    line-height: 1.9;
+    margin: 14px 0;
+    font-size: 1.02rem;
+}
+
+.big-heart {
+    font-size: 65px;
+    animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.15); }
+}
+
+button {
+    border: none;
+    background: #ed79a1;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 14px 20px;
+    margin: 7px 4px;
+    border-radius: 28px;
+    cursor: pointer;
+    box-shadow: 0 5px 12px #ed79a133;
+    transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: #df5688;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.hidden {
+    display: none;
+}
+
+.message-box {
+    background: #fff0f6;
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 20px;
+    line-height: 1.9;
+    animation: appear 0.5s ease;
+    white-space: normal;
+}
+
+.treatment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 22px 0;
+}
+
+.treatment-grid button {
+    min-height: 75px;
+    margin: 0;
+}
+
+.heart-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin: 22px 0;
+}
+
+.heart-button {
+    font-size: clamp(2.7rem, 10vw, 4.2rem);
+    background: transparent;
+    box-shadow: none;
+    padding: 5px;
+    animation: beat 1.5s infinite;
+}
+
+.heart-button:hover {
+    background: #fff0f6;
+}
+
+.heart-note {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.final-message {
+    background: linear-gradient(135deg, #fff0f6, #ffe0ec);
+    border: 1px solid white;
+}
+
+.small {
+    color: #bd7894;
+    font-size: 0.86rem;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    color: #b86a8b;
+}
+
+@media (max-width: 380px) {
+    .card { padding: 24px 15px; }
+    .treatment-grid button { padding: 12px 6px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<main>
+
+    <!-- 1. WELCOME -->
+    <section class="card" id="welcome">
+        <div class="big-heart">💗</div>
+        <h1>Hii Suriyaaa!</h1>
+        <p>
+            Helloooo babbyyy 🥹💕
+        </p>
+        <p>
+            Sooooo, someone has something to tell youuu...
+            and it's all for youuu. 💌
+        </p>
+        <p>Are you ready, babyyy? 🫣</p>
+        <button onclick="goTo('littleMessage')">
+            Open this, please? 💌
+        </button>
+    </section>
+
+    <!-- 2. LITTLE MESSAGE -->
+    <section class="card hidden" id="littleMessage">
+        <div class="big-heart">🥹❤️</div>
+        <h2>A little message for youuu</h2>
+
+        <div class="message-box">
+            Hiii,  Suriyaaa ❤️
+
+            <p>
+                I know we've been having our little arguments,
+                and these past two days haven't felt the same
+                because we haven't been talking properly.
+                I don't really like this distance between us,
+                 . 🥹
+            </p>
+
+            <p>
+                Even when I'm upset, you're still the person
+                I want to talk to. Sometimes we might
+                misunderstand each other or say things the
+                wrong way, so this is to make u alright.
+                
+            </p>
+
+            <p>
+                I'm not asking us to be perfect. I just want
+                us to listen to each other, understand each
+                other, and not let our little arguments keep
+                us away for too long. ❤️‍🩹
+            </p>
+
+            <p>
+                lovee youu sooo much babbbyyy
+                
+                 🫂💗
+            </p>
+        </div>
+
+        <button onclick="goTo('loveLetter')">
+            There's more, babyyy 💌
+        </button>
+    </section>
+
+    <!-- 3. HIDDEN LOVE LETTER -->
+    <section class="card hidden" id="loveLetter">
+        <div class="big-heart">💖</div>
+        <h2>Open my hearttt</h2>
+        <p>
+            I have a little more love to give youuu.
+            Click below to read it. 🥹
+        </p>
+
+        <button onclick="reveal('letterText')">
+            Open my heart 💌
+        </button>
+
+        <div id="letterText" class="message-box hidden">
+            <p>
+                Babyyyy, if there's one thing I want you
+                to know, it's that you are so much more
+                special to me than I can explain in words. 🥹💗
+            </p>
+
+            <p>
+                I love the little things about us, the way
+                talking to you can change my mood, the
+                comfort I feel when we're okay, and even
+                the silly little moments that probably seem
+                ordinary to everyone else.
+            </p>
+
+            <p>
+                I don't want a relationship where we never
+                argue. I want one where we can come back
+                to each other, talk honestly, say sorry when
+                we need to, and try again because we care.
+            </p>
+
+            <p>
+                I want more conversations with you, more
+                laughter, more stupid jokes, more moments
+                where we forget what we were even arguing
+                about, and more time just being us. 🫶🏻
+            </p>
+
+            <p>
+                You're my favourite person to annoy, to talk
+                to, to miss, and to loveee. And even on the
+                days when things aren't perfect, my feelings
+                for you aren't something I want to throw
+                away over a fight. ❤️
+            </p>
+        </div>
+
+        <button onclick="goTo('treatment')">
+            One more thinggg 😚
+        </button>
+    </section>
+
+    <!-- 4. BOYFRIEND TREATMENT -->
+    <section class="card hidden" id="treatment">
+        <div class="big-heart">😘</div>
+        <h2>Choose Your BF Treatment</h2>
+
+        <p>
+            Okay babyyy, what treatment are you choosing
+            from your girl todayyy? 🤭💕
+        </p>
+
+        <div class="treatment-grid">
+            <button onclick="treat('kiss')">
+                💋 KISS
+            </button>
+            <button onclick="treat('hug')">
+                🫂 HUG
+            </button>
+            <button onclick="treat('cuddle')">
+                🧸 CUDDLE
+            </button>
+            <button onclick="treat('all')">
+                💗 ALL OF THE ABOVE
+            </button>
+        </div>
+
+        <div id="treatmentText" class="message-box hidden"></div>
+
+        <button onclick="goTo('threeHearts')">
+            Next surprise, my loveee ❤️
+        </button>
+    </section>
+
+    <!-- 5. THREE HEARTS -->
+    <section class="card hidden" id="threeHearts">
+        <div class="big-heart">💞</div>
+        <h2>Three little hearts for youuu</h2>
+
+        <p>
+            Each heart has something I want you to know.
+            Open all three, babyyy. 🥹❤️
+        </p>
+
+        <div class="heart-grid">
+            <button class="heart-button"
+                aria-label="Open first heart"
+                onclick="openHeart(0)">❤️</button>
+
+            <button class="heart-button"
+                aria-label="Open second heart"
+                onclick="openHeart(1)">💗</button>
+
+            <button class="heart-button"
+                aria-label="Open third heart"
+                onclick="openHeart(2)">💖</button>
+        </div>
+
+        <div id="heartMessage0"
+             class="message-box heart-note hidden"></div>
+        <div id="heartMessage1"
+             class="message-box heart-note hidden"></div>
+        <div id="heartMessage2"
+             class="message-box heart-note hidden"></div>
+
+        <p id="heartCounter" class="small">
+            Hearts opened: 0 / 3 💕
+        </p>
+
+        <button onclick="goTo('ending')">
+            One last message for youuu 🥹
+        </button>
+    </section>
+
+    <!-- 6. EMOTIONAL ENDING -->
+    <section class="card final-message hidden" id="ending">
+        <div class="big-heart">❤️‍🩹</div>
+        <h1>Suriyaaaa!</h1>
+        <h2>I miss youuuuu 😭💗</h2>
+
+        <div class="message-box">
+            <p>
+                SURIYAAAAA, I MISS YOU SOOOOOOOOO MUCHHHH. 😭❤️
+            </p>
+
+            <p>
+                I WANT TO SEEEE YOUUUU. I WANT TO TALK
+                TO YOUUUU FOR SOOOO MUCH LONGERRR.
+                LAUGH WITH YOU,
+                TELL YOU ALL MY RANDOM THOUGHTS, ANNOY YOU,
+                AND JUST SPEND MORE TIME WITH YOUUU. 🥹💗
+            </p>
+
+            <p>
+                I miss being able to talk to you whenever
+                I want. I miss our conversations. I miss
+                our little moments. And right nowww, I just
+                wish I could be with you, hug you tightly,
+                and tell you everything instead of typing
+                it all hereee. 🫂💋
+            </p>
+
+            <p>
+                I LOVE YOUUU SOOOOO MUCHHH, MY SURIIYAAAA.
+                PLEASE TAKE CARE OF YOURSELF, OKAYYY?
+                😭💗💗💗
+            </p>
+
+            <h2>MISSING YOUUU INFINITYYYYY ♾️❤️</h2>
+        </div>
+
+        <p>
+            No pressure, my love. Whenever you're ready,
+            I'd love to hear from you. 🫂
+        </p>
+
+        <button onclick="sendLove()">
+            Sending you a virtual huggg 🫂
+        </button>
+
+        <p id="finalHug" class="hidden">
+            BIGGEST HUG EVER FOR MY SURIIYAAAAA!!! 🫂💗💋
+        </p>
+    </section>
+
+    <footer>
+        Made with all my love, just for Suriya 💗
+    </footer>
+
+</main>
+
+<script>
+function goTo(id) {
+    document.querySelectorAll('main > section').forEach(section => {
+        section.classList.add('hidden');
+    });
+
+    const next = document.getElementById(id);
+    next.classList.remove('hidden');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function reveal(id) {
+    document.getElementById(id).classList.remove('hidden');
+}
+
+const treatments = {
+    kiss: `
+        <h3>MWAHHHHH! 💋💋</h3>
+        <p>One kiss for my babyyy! And another one
+        because I missed youuu. 😚❤️</p>
+        <p>Unlimited virtual kisses just for youuu!</p>
+    `,
+    hug: `
+        <h3>COME HEREEEE! 🫂</h3>
+        <p>Biggest, tightest hug everrr. I'm not
+        letting go that easilyyy. 🥹❤️</p>
+        <p>Imagine me hugging you until everything
+        feels a little better. 💗</p>
+    `,
+    cuddle: `
+        <h3>CUDDLE TIMEEEE! 🧸💗</h3>
+        <p>Come cuddle with meee. I just want to be
+        close to you and forget the whole world
+        for a little while. 🥹</p>
+        <p>You, me, and a peaceful little moment. ❤️</p>
+    `,
+    all: `
+        <h3>CORRECT ANSWERRR! 😭💗</h3>
+        <p>You get all my kisses, all my hugs,
+        all my cuddles, and unlimited loveeee!</p>
+        <p>BEST BOYFRIEND TREATMENT ACTIVATED! 💋🫂💗</p>
+    `
+};
+
+function treat(type) {
+    const box = document.getElementById('treatmentText');
+    box.innerHTML = treatments[type];
+    box.classList.remove('hidden');
+}
+
+const heartMessages = [
+    `<h3>MY FIRST HEART ❤️</h3>
+     <p>I LOVE YOUUUU INFINITYYYYY AND BEYONDDD! ♾️❤️</p>
+     <p>No number, no distance, and no little argument
+     could ever fit the amount of love I have for youuu.
+     You're so special to me, babyyy. 🥹💗</p>`,
+
+    `<h3>MY SECOND HEART 💗</h3>
+     <p>Babyyy, I love you more than you could ever imagine.
+     If only you could see yourself through my eyes,
+     you'd understand just how incredibly special you
+     are to me.</p>
+     <p>You mean more to me than these little words
+     can ever explain. ❤️‍🩹</p>`,
+
+    `<h3>MY THIRD HEART 💖</h3>
+     <p>Even when I'm quiet or upset, there is still so
+     much love in my heart for you.</p>
+     <p>I don't need us to have perfect days to know
+     that you matter to me. I just want us to keep
+     understanding each other and choosing kindness.
+     I love youuu, my Suriyaaa. 🫶🏻❤️</p>`
+];
+
+const openedHearts = [false, false, false];
+
+function openHeart(index) {
+    const box = document.getElementById('heartMessage' + index);
+
+    box.innerHTML = heartMessages[index];
+    box.classList.remove('hidden');
+
+    openedHearts[index] = true;
+
+    const count = openedHearts.filter(Boolean).length;
+    document.getElementById('heartCounter').textContent =
+        `Hearts opened: ${count} / 3 💕`;
+
+    if (count === 3) {
+        document.getElementById('heartCounter').textContent =
+            'You opened all my little hearts! I love youuu! ❤️❤️❤️';
+    }
+}
+
+function sendLove() {
+    document.getElementById('finalHug').classList.remove('hidden');
+    makeHearts(18);
+}
+
+function makeHearts(amount = 1) {
+    const container = document.getElementById('hearts');
+    const symbols = ['💗', '💕', '💖', '❤️', '💘'];
+
+    for (let i = 0; i < amount; i++) {
+        const heart = document.createElement('span');
+        heart.className = 'float-heart';
+        heart.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.animationDuration =
+            (4 + Math.random() * 5) + 's';
+        heart.style.fontSize =
+            (16 + Math.random() * 22) + 'px';
+
+        container.appendChild(heart);
+        heart.addEventListener('animationend', () => heart.remove());
+    }
+}
+
+setInterval(() => makeHearts(2), 1000);
+</script>
+
+</body>
+</html>
